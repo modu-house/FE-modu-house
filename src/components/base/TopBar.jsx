@@ -48,6 +48,7 @@ const StyledLogo = styled.div`
     -moz-user-drag: none;
     -o-user-drag: none;
     user-select: none;
+    margin-right: 10px;
   }
 
   h1 {
