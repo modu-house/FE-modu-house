@@ -19,7 +19,7 @@ function Login() {
             </Button>
           </div>
           <Link to="/register" className="register">
-            <span>회원가입</span>
+            <span className="register-text">회원가입</span>
           </Link>
         </AuthForm>
       </FormBlock>
@@ -36,15 +36,14 @@ const FormBlock = styled.div`
 const PageTitle = styled.div`
   text-align: center;
   font-size: ${({ theme }) => theme.fontSizes.title};
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 1px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 `;
 
 const AuthForm = styled.div`
   ${({ theme }) => theme.common.flexCenterColumn}
-  width: 600px;
-  height: 400px;
+  padding: 40px;
   border-radius: 15px;
   background-color: ${({ theme }) => theme.colors.bg_paper2};
   ${({ theme }) => theme.common.boxShadow};
@@ -53,7 +52,7 @@ const AuthForm = styled.div`
     ${({ theme }) => theme.common.flexCenterColumn}
 
     input {
-      margin-bottom: 10px;
+      margin-bottom: 18px;
     }
   }
 
@@ -61,7 +60,7 @@ const AuthForm = styled.div`
     margin-top: 10px;
   }
 
-  span {
+  .register-text {
     color: ${({ theme }) => theme.colors.text3};
   }
 `;
