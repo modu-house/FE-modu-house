@@ -33,7 +33,6 @@ const StyledTopBar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
   width: 100%;
   height: 60px;
   background-color: ${({ theme }) => theme.colors.bg_paper2};
@@ -49,7 +48,6 @@ const StyledLogo = styled.div`
     -moz-user-drag: none;
     -o-user-drag: none;
     user-select: none;
-    margin: 0 10px 0 10px;
   }
 
   h1 {

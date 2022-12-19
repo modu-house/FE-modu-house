@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Input from '../components/common/Input';
+import MainPageTemplate from '../components/main/MainPageTemplate';
 
 function Login() {
   return (
-    <BgPaper>
+    <MainPageTemplate>
       <FormBlock>
         <PageTitle>로그인</PageTitle>
         <AuthForm>
@@ -19,16 +20,11 @@ function Login() {
           </Link>
         </AuthForm>
       </FormBlock>
-    </BgPaper>
+    </MainPageTemplate>
   );
 }
 
 export default Login;
-
-const BgPaper = styled.div`
-  height: 100vh;
-  background-color: ${({ theme }) => theme.colors.bg_paper2};
-`;
 
 const FormBlock = styled.div`
   ${({ theme }) => theme.common.absoluteCenter};
