@@ -5,10 +5,12 @@ import Details from '../pages/Details';
 import Write from '../pages/Write';
 import Register from '../pages/Register';
 import Login from '../pages/Login';
+import TopBar from '../components/base/TopBar';
 
 function Router() {
   return (
     <BrowserRouter>
+      <TopBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/details/" element={<Navigate to="/" replace />} />
