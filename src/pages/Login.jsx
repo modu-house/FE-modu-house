@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Input from '../components/common/Input';
 import MainPageTemplate from '../components/main/MainPageTemplate';
+import Button from '../components/common/Button';
 
 function Login() {
   return (
@@ -13,8 +14,10 @@ function Login() {
           <div className="inputBox">
             <Input type="text" placeholder="아이디" />
             <Input type="password" placeholder="패스워드" />
+            <Button size="large" width="100%">
+              로그인
+            </Button>
           </div>
-          <button type="button">로그인</button>
           <Link to="/register" className="register">
             <span>회원가입</span>
           </Link>

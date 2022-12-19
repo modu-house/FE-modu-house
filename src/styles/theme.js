@@ -11,6 +11,8 @@ const colors = {
   text2: '#D3D3D3',
   text3: '#808080',
   primary1: '#FEA1A1',
+  primary2: '#FFC6C6', // 연한 핑크
+  primary3: '#FF8A8A', // 진한 핑크
   bg_paper1: '#F9FAFB',
   bg_paper2: '#FFFFFF',
   button_text: '#FFFFFF',
