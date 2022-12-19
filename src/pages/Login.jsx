@@ -1,7 +1,8 @@
 import React from 'react';
+import MainPageTemplate from '../components/main/MainPageTemplate';
 
 function Login() {
-  return <div>Login</div>;
+  return <MainPageTemplate>Login</MainPageTemplate>;
 }
 
 export default Login;
