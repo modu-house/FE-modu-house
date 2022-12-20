@@ -65,7 +65,7 @@ export const postLike = async (postId) => {
 // 게시글 좋아요 취소
 export const cancelPostLike = async (postId) => {
   try {
-    const data = await instance.post(`/api/boards/${postId}/boardLike`);
+    const data = await instance.delete(`/api/boards/${postId}/boardLike`);
     return data;
   } catch (error) {
     alert(error.response.data.msg);

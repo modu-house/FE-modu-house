@@ -1,5 +1,11 @@
 import { rest } from 'msw';
 import img from '../assets/modu-house.svg';
+import { comment } from 'postcss';
+
+const users = [
+  { id: 'test', password: 'test', usename: '양정동마자용'}
+  { id: 'synun', password: 'synun', usename: '미사동똑띠'}
+];
 
 const boards = [
   {
@@ -13,6 +19,22 @@ const boards = [
     modifiedAt: '2020-04-11T11:12:30.686',
     image: { img },
     boardLike: 2,
+    comments: [
+      {
+        id: 1,
+        postId: 1,
+        username: '관악구불주먹에이스',
+        content: '댓글 안달면 불주먹 날라감',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 2,
+        postId: 1,
+        username: '관악구길거리파이터',
+        content: '광명시장 길바닥 다 내 손바닥 안임',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+    ]
   },
   {
     id: 2,
@@ -25,25 +47,77 @@ const boards = [
     modifiedAt: '2020-04-11T11:12:30.686',
     image: { img },
     boardLike: 2,
+    comments: [
+      {
+        id: 3,
+        postId: 2,
+        username: '노원구러닝메이트',
+        content: '근처 공원에서 아침 바람 맞으며 러닝하기',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 4,
+        postId: 2,
+        username: '서대문구기리보이',
+        content: '여기 오면 내가 랩해드림',
+        createdAt: '2020-04-11T11:12:30.686',
+      }
+    ]
   },
 ];
 
-// const comments = [];
+const comments = [
+  {
+    id: 1,
+    postId: 1,
+    username: '관악구불주먹에이스',
+    content: '댓글 안달면 불주먹 날라감',
+    createdAt: '2020-04-11T11:12:30.686',
+  },
+  {
+    id: 2,
+    postId: 1,
+    username: '관악구길거리파이터',
+    content: '광명시장 길바닥 다 내 손바닥 안임',
+    createdAt: '2020-04-11T11:12:30.686',
+  },
+  {
+    id: 3,
+    postId: 2,
+    username: '노원구러닝메이트',
+    content: '근처 공원에서 아침 바람 맞으며 러닝하기',
+    createdAt: '2020-04-11T11:12:30.686',
+  },
+  {
+    id: 4,
+    postId: 2,
+    username: '서대문구기리보이',
+    content: '여기 오면 내가 랩해드림',
+    createdAt: '2020-04-11T11:12:30.686',
+  }
+];
 
 export const userHandlers = [
+  // 회원가입
   rest.post('/api/user/signup', (req, res, ctx) => {
-    return res(
-      ctx.json({
-        jwt: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
-      }),
-    );
+    users.push(req.body);
+    return res(ctx.status(201));
   }),
+
+  // 로그인
   rest.post('/api/user/login', (req, res, ctx) => {
-    return res(
-      ctx.json({
-        jwt: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
-      }),
-    );
+    { id, password } = req.body;
+    const exist = users.find((item) => id===item.id && password===item.password);
+    if(exist) {
+      return res(
+        ctx.status(200),
+        ctx.json({
+          jwt: 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiaW4xMjM0IiwiZXhwIjoxNjY5ODcwNDUyLCJpYXQiOjE2Njk4NjY4NTJ9.mm8wgaV8M70hidhPX4Ut6UONZGaxjA1KnOJT1mO59Xc',
+        }),
+      );
+    } else {
+      return res(ctx.status(404));
+    }
   }),
 ];
 
@@ -68,34 +142,87 @@ export const boardsHandlers = [
     return res(ctx.status(201));
   }),
 
+  // 게시글 수정
+  rest.put('/api/boards/:id', (req, res, ctx) => {
+    const { id } = req.params;
+    boards = boards.map((item) => {
+      if(item.id === id){
+        return req.body;
+      } else {
+        return item;
+      }
+    });
+    return res(ctx.status(201));
+  }),
+
   // 게시글 삭제
   rest.delete('/api/boards/:id', (req, res, ctx) => {
+    const { id } = req.params;
     boards = boards.filter((item) => item.id === id);
     return res(ctx.status(200));
   }),
+
+  // 게시글 좋아요
+  rest.post('/api/boards/:id/boardLike', (req, res, ctx) => {
+    const { id } = req.params;
+    boards = boards.map((item) => {
+      if(item.id === id){
+        return {...item, boardLike: item.boardLike + 1};
+      } else {
+        return item;
+      }
+    });
+    return res(ctx.status(200));
+  }),
+
+  // 게시글 좋아요 취소
+  rest.delete('/api/boards/:id/boardLike', (req, res, ctx) => {
+    const { id } = req.params;
+    boards = boards.map((item) => {
+      if(item.id === id){
+        return {...item, boardLike: item.boardLike - 1};
+      } else {
+        return item;
+      }
+    });
+    return res(ctx.status(200));
+  })
 ];
 
 // TODO - add comment mock
-// export const commentsHandlers = [
-//   // 댓글 조회
-//   rest.get('/api/boards/:id', (req, res, ctx) => {
-//     const { id } = req.params;
-//     return res(ctx.status(200), ctx.json(boards.filter((item) => item.boardId === id)));
-//   }),
+export const commentsHandlers = [
+  // 댓글 추가
+  rest.post('/api/boards/:postId/comment', (req, res, ctx) => {
+    const { postId } = req.params;
+    comments.push({
+      postId,
+      id: comments.length + 1,
+      ...req.body
+    });
+    return res(ctx.status(200));
+  }),
 
-//   // 댓글 추가
-//   rest.post('/api/boards/:boardId/comment', (req, res, ctx) => {
-//     const { boardId } = req.params;
-//     boards.push({ boardId, ...req.body});
-//     return res(ctx.status(201));
-//   }),
+  // 댓글 수정
+  rest.put('/api/boards/:postId/comment/:commentId', (req, res, ctx) => {
+    const { postId, commentId } = req.params;
+    comments = comments.map((item) => {
+      if(item.id === commentId){
+        return {...item, ...req.body};
+      } else {
+        return item;
+      }
+    });
+    return res(ctx.status(200));
+  }),
 
-//   // 댓글 삭제
-//   rest.delete('/api/boards/:id', (req, res, ctx) => {
-//     boards = boards.filter((item) => item.id === id);
-//     return res(ctx.status(200));
-//   }),
-// ]
+
+  // 댓글 삭제
+  rest.delete('/api/boards/${postId}/comment/${commentId}', (req, res, ctx) => {
+    const { postId, commentId } = req.params;
+    comment = comment.filter((item) => item.id === commentId);
+    return res(ctx.status(200));
+  }),
+]
 
 // export const handlers = [...userHandlers, ...boardsHandlers, ...commentsHandlers];
 export const handlers = [...userHandlers, ...boardsHandlers];
