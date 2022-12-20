@@ -51,7 +51,6 @@ export const boardsHandlers = [
   // 게시글 조회
   rest.get('/api/boards', (req, res, ctx) => {
     const local = req.url.searchParams.get('local')
-    console.log(local);
     // exist local query string
     if(local) return res(ctx.status(200), ctx.json(boards.filter((item) => item.local === local)));
     else return res(ctx.status(200), ctx.json(boards));
@@ -60,12 +59,11 @@ export const boardsHandlers = [
   // 게시글 상세 조회
   rest.get('/api/boards/:id', (req, res, ctx) => {
     const { id } = req.params;
-    return res(ctx.status(200), ctx.json(boards.find((item) => item.id === id)));
+    return res(ctx.status(200), ctx.json(boards.find((item) => item.id === Number(id))));
   }),
 
   // 게시글 추가
   rest.post('/api/boards', (req, res, ctx) => {
-    console.log(req.body);
     boards.push(req.body);
     return res(ctx.status(201));
   }),
