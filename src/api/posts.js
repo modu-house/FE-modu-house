@@ -3,7 +3,7 @@ import { instance } from "./core/axios";
 // TODO - alert 대체 컴포넌트 제작 필요
 
 // 게시글 조회
-export const getPosts = async () => {
+const getPosts = async () => {
   try {
     const data = await instance.get("/api/boards");
     return data;
@@ -12,8 +12,17 @@ export const getPosts = async () => {
   }
 };
 
+const getPostsByLocal = async (local) => {
+  try {
+    const data = await instance.get(`/api/boards?local=${local}`);
+    return data;
+  } catch (error) {
+    alert(error.response.data.msg);
+  }
+};
+
 // 게시글 상세 조회
-export const getPostDetail = async (postId) => {
+const getPostDetail = async (postId) => {
   try {
     const data = await instance.get(`/api/boards/${postId}`);
     return data;
@@ -23,7 +32,7 @@ export const getPostDetail = async (postId) => {
 };
 
 // 게시글 작성
-export const writePost = async (post) => {
+const writePost = async (post) => {
   try {
     const data = await instance.post("/api/boards", post);
     return data;
@@ -33,7 +42,7 @@ export const writePost = async (post) => {
 };
 
 // 게시글 수정
-export const editPost = async (postId, post) => {
+const editPost = async (postId, post) => {
   try {
     const data = await instance.put(`/api/boards/${postId}`, post);
     return data;
@@ -43,7 +52,7 @@ export const editPost = async (postId, post) => {
 };
 
 // 게시글 삭제
-export const deletePost = async (postId) => {
+const deletePost = async (postId) => {
   try {
     const data = await instance.delete(`/api/boards/${postId}`);
     return data;
@@ -53,7 +62,7 @@ export const deletePost = async (postId) => {
 };
 
 // 게시글 좋아요
-export const postLike = async (postId) => {
+const postLike = async (postId) => {
   try {
     const data = await instance.post(`/api/boards/${postId}/boardLike`);
     return data;
@@ -63,7 +72,7 @@ export const postLike = async (postId) => {
 };
 
 // 게시글 좋아요 취소
-export const cancelPostLike = async (postId) => {
+const cancelPostLike = async (postId) => {
   try {
     const data = await instance.delete(`/api/boards/${postId}/boardLike`);
     return data;
@@ -71,3 +80,16 @@ export const cancelPostLike = async (postId) => {
     alert(error.response.data.msg);
   }
 };
+
+const postAPI = {
+  getPosts,
+  getPostsByLocal,
+  getPostDetail,
+  writePost,
+  editPost,
+  deletePost,
+  postLike,
+  cancelPostLike,
+}
+
+export default postAPI;
