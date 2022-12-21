@@ -8,17 +8,17 @@ function HouseList() {
   return (
     <HouseBox>
       <House>
-        <Link to="/details/:1">
+        <Link to="/details/1">
           <FontAwesomeIcon icon={faHouseChimney} className="house" />
         </Link>
       </House>
       <House>
-        <Link to="/details/:2">
+        <Link to="/details/2">
           <FontAwesomeIcon icon={faHouseChimney} className="house" />
         </Link>
       </House>
       <House>
-        <Link to="/details/:3">
+        <Link to="/details/3">
           <FontAwesomeIcon icon={faHouseChimney} className="house" />
         </Link>
       </House>
