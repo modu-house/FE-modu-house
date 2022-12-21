@@ -2,12 +2,12 @@ import { rest } from 'msw';
 import img from '../assets/modu-house.svg';
 import { comment } from 'postcss';
 
-const users = [
+let users = [
   { id: 'test', password: 'test', usename: '양정동마자용'},
   { id: 'synun', password: 'synun', usename: '미사동똑띠'}
 ];
 
-const boards = [
+let boards = [
   {
     id: 1,
     title: '여기 방 추천합니다.',
@@ -66,7 +66,7 @@ const boards = [
   },
 ];
 
-const comments = [
+let comments = [
   {
     id: 1,
     postId: 1,
@@ -219,7 +219,7 @@ export const commentsHandlers = [
   // 댓글 삭제
   rest.delete('/api/boards/${postId}/comment/${commentId}', (req, res, ctx) => {
     const { postId, commentId } = req.params;
-    comment = comment.filter((item) => item.id === commentId);
+    comments = comments.filter((item) => item.id === commentId);
     return res(ctx.status(200));
   }),
 ]
