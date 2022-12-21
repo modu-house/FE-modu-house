@@ -36,7 +36,7 @@ module.exports = {
     'import/core-modules': [electron], // slider devDependencies 규칙 해제
     'import/no-extraneous-dependencies': [
       'error',
-      { devDependencies: ['**/mocks/*'},
+      { devDependencies: ['**/mocks/*'] },
     ], // mock server devdependency 사용 제한 규칙 해제
   },
 };
