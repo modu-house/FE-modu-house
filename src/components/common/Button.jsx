@@ -8,15 +8,15 @@ const ButtonBlock = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
+  font-weight: 300;
   cursor: pointer;
   outline: none;
   border: none;
   color: white;
-  background: ${(props) => props.color || theme.colors.primary1};
+  background: ${(props) => props.bgcolor || theme.colors.primary1};
   color: ${(props) => props.color || theme.colors.button_text};
   &:active {
-    background: ${(props) => props.color || theme.colors.primary3};
+    background: ${(props) => props.bgcolor || theme.colors.primary3};
   }
   border-radius: 10px;
   padding-top: 0;
@@ -36,6 +36,14 @@ const ButtonBlock = styled.button`
         padding-left: 0.9375rem;
         padding-right: 0.9375rem;
         font-size: 0.75rem;
+      }
+    `}
+  ${(props) =>
+    props.outlined &&
+    css`
+      & {
+        background-color: ${(props) => props.bgcolor || '#fff'};
+        border: 0.25px solid ${(props) => props.color || theme.colors.text1};
       }
     `}
   ${(props) =>
@@ -71,21 +79,25 @@ const ButtonBlock = styled.button`
 function Button({
   children,
   ref,
+  bgcolor,
   color,
   inline,
   size = 'medium',
   width = 'auto',
   responsive = false,
+  outlined = false,
   ...rest
 }) {
   const htmlProps = rest;
   return (
     <ButtonBlock
+      bgcolor={bgcolor}
       color={color}
       inline={inline}
       width={width}
       size={size}
       responsive={responsive}
+      outlined={outlined}
       {...htmlProps}
       onClick={(e) => {
         if (htmlProps.onClick) {
