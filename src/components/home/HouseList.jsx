@@ -26,8 +26,6 @@ function HouseList() {
   );
 }
 
-export default HouseList;
-
 const HouseBox = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(130px, 130px));
@@ -46,3 +44,5 @@ const House = styled.div`
     color: ${({ theme }) => theme.colors.primary1};
   }
 `;
+
+export default HouseList;

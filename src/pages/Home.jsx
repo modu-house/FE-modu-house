@@ -1,11 +1,11 @@
 import React from 'react';
 import MainPageTemplate from '../components/main/MainPageTemplate';
-import Slider from '../components/home/Slider';
+import MainSlider from '../components/home/MainSlider';
 
 function Home() {
   return (
     <MainPageTemplate>
-      <Slider />
+      <MainSlider />
     </MainPageTemplate>
   );
 }

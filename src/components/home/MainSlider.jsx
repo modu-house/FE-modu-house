@@ -10,7 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import HouseList from './HouseList';
 
-export default function Slider() {
+function MainSlider() {
   const settings = {
     infinite: true,
     speed: 500,
@@ -42,6 +42,7 @@ export default function Slider() {
     </SliderWrapper>
   );
 }
+
 const SliderWrapper = styled.div`
   position: relative;
   width: 100%;
@@ -82,3 +83,5 @@ const NextDiv = styled.div`
 // const Container = styled.div`
 //   overflow: hidden;
 // `;
+
+export default MainSlider;

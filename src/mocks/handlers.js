@@ -3,7 +3,7 @@ import img from '../assets/modu-house.svg';
 import { comment } from 'postcss';
 
 const users = [
-  { id: 'test', password: 'test', usename: '양정동마자용'}
+  { id: 'test', password: 'test', usename: '양정동마자용'},
   { id: 'synun', password: 'synun', usename: '미사동똑띠'}
 ];
 
@@ -106,7 +106,7 @@ export const userHandlers = [
 
   // 로그인
   rest.post('/api/user/login', (req, res, ctx) => {
-    { id, password } = req.body;
+    const { id, password } = req.body;
     const exist = users.find((item) => id===item.id && password===item.password);
     if(exist) {
       return res(
