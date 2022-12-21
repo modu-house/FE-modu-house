@@ -9,6 +9,7 @@ ${reset}
 
 body{
     font-family: 'Nanum Gothic', sans-serif;
+    min-height: 667px;
 }
 
 a{

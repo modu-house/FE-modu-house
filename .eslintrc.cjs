@@ -34,5 +34,9 @@ module.exports = {
     'no-param-reassign': 0, // 파라미터 변경을 허용하지 않는 규칙 해제
     'no-alert': 0, // alert 제한 규칙 해제
     'import/core-modules': [electron], // slider devDependencies 규칙 해제
+    'import/no-extraneous-dependencies': [
+      'error',
+      { devDependencies: ['**/mocks/*'},
+    ], // mock server devdependency 사용 제한 규칙 해제
   },
 };
