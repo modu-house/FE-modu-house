@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Logo from '../../assets/modu-house.svg';
 import MenuButton from './MenuButton';
+import SideBar from './Sidebar';
 
 function TopBar() {
   return (
@@ -15,7 +16,7 @@ function TopBar() {
           </StyledLogo>
         </Link>
         <StyledNav>
-          <MenuButton />
+          <SideBar />
         </StyledNav>
       </StyledTopBar>
     </StyledCenter>
