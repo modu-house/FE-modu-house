@@ -38,7 +38,7 @@ function SideBar() {
 const StSideBar = styled.div`
   .show-menu {
     width: 300px;
-    height: 100vh;
+    height: 93vh;
     position: absolute;
     right: 0;
     transition: all 1s;
@@ -48,8 +48,10 @@ const StSideBar = styled.div`
   }
 
   .hide-menu {
+    display: none;
     width: 300px;
-    height: 100vh;
+    height: 93vh;
+    visibility: hidden;
     position: absolute;
     right: -300px;
     transition: all 1s;
