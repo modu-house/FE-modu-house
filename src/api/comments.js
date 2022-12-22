@@ -29,3 +29,11 @@ export const deleteComment = async (postId, commentId) => {
     alert(error.response.data.msg);
   }
 };
+
+const commentAPI = {
+  writeComment,
+  editComment,
+  deleteComment,
+}
+
+export default commentAPI;

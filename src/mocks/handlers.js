@@ -1,6 +1,5 @@
 import { rest } from 'msw';
 import img from '../assets/modu-house.svg';
-import { comment } from 'postcss';
 
 let users = [
   { id: 'test', password: 'test', usename: '양정동마자용'},
@@ -38,6 +37,566 @@ let boards = [
   },
   {
     id: 2,
+    title: '강남의 중심이지만 조용한 지역 추천해요',
+    local: '강남구',
+    content:
+      '강남역이랑 가까우면서 치안도 좋고 조용해요.\n마치 신화속에 나오는 전설의 동물같은 지역입니다.',
+    username: '유니콘',
+    createdAt: '2020-04-11T11:12:30.686',
+    modifiedAt: '2020-04-11T11:12:30.686',
+    image: { img },
+    boardLike: 2,
+    comments: [
+      {
+        id: 3,
+        postId: 2,
+        username: '노원구러닝메이트',
+        content: '근처 공원에서 아침 바람 맞으며 러닝하기',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 4,
+        postId: 2,
+        username: '서대문구기리보이',
+        content: '여기 오면 내가 랩해드림',
+        createdAt: '2020-04-11T11:12:30.686',
+      }
+    ]
+  },
+  {
+    id: 3,
+    title: '여기 방 추천합니다.',
+    local: '관악구',
+    content:
+      '여기 방 따뜻합니다.\n 제가 옆집이 시끄러워서 벽을 주먹으로 몇 대 쳤더니 보일러가 필요없어졌네요.',
+    username: '관악구불주먹에이스',
+    createdAt: '2020-04-11T11:12:30.686',
+    modifiedAt: '2020-04-11T11:12:30.686',
+    image: { img },
+    boardLike: 2,
+    comments: [
+      {
+        id: 1,
+        postId: 1,
+        username: '관악구불주먹에이스',
+        content: '댓글 안달면 불주먹 날라감',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 2,
+        postId: 1,
+        username: '관악구길거리파이터',
+        content: '광명시장 길바닥 다 내 손바닥 안임',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+    ]
+  },
+  {
+    id: 4,
+    title: '강남의 중심이지만 조용한 지역 추천해요',
+    local: '강남구',
+    content:
+      '강남역이랑 가까우면서 치안도 좋고 조용해요.\n마치 신화속에 나오는 전설의 동물같은 지역입니다.',
+    username: '유니콘',
+    createdAt: '2020-04-11T11:12:30.686',
+    modifiedAt: '2020-04-11T11:12:30.686',
+    image: { img },
+    boardLike: 2,
+    comments: [
+      {
+        id: 3,
+        postId: 2,
+        username: '노원구러닝메이트',
+        content: '근처 공원에서 아침 바람 맞으며 러닝하기',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 4,
+        postId: 2,
+        username: '서대문구기리보이',
+        content: '여기 오면 내가 랩해드림',
+        createdAt: '2020-04-11T11:12:30.686',
+      }
+    ]
+  },
+  {
+    id: 5,
+    title: '여기 방 추천합니다.',
+    local: '관악구',
+    content:
+      '여기 방 따뜻합니다.\n 제가 옆집이 시끄러워서 벽을 주먹으로 몇 대 쳤더니 보일러가 필요없어졌네요.',
+    username: '관악구불주먹에이스',
+    createdAt: '2020-04-11T11:12:30.686',
+    modifiedAt: '2020-04-11T11:12:30.686',
+    image: { img },
+    boardLike: 2,
+    comments: [
+      {
+        id: 1,
+        postId: 1,
+        username: '관악구불주먹에이스',
+        content: '댓글 안달면 불주먹 날라감',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 2,
+        postId: 1,
+        username: '관악구길거리파이터',
+        content: '광명시장 길바닥 다 내 손바닥 안임',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+    ]
+  },
+  {
+    id: 6,
+    title: '강남의 중심이지만 조용한 지역 추천해요',
+    local: '강남구',
+    content:
+      '강남역이랑 가까우면서 치안도 좋고 조용해요.\n마치 신화속에 나오는 전설의 동물같은 지역입니다.',
+    username: '유니콘',
+    createdAt: '2020-04-11T11:12:30.686',
+    modifiedAt: '2020-04-11T11:12:30.686',
+    image: { img },
+    boardLike: 2,
+    comments: [
+      {
+        id: 3,
+        postId: 2,
+        username: '노원구러닝메이트',
+        content: '근처 공원에서 아침 바람 맞으며 러닝하기',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 4,
+        postId: 2,
+        username: '서대문구기리보이',
+        content: '여기 오면 내가 랩해드림',
+        createdAt: '2020-04-11T11:12:30.686',
+      }
+    ]
+  },
+  {
+    id: 7,
+    title: '여기 방 추천합니다.',
+    local: '관악구',
+    content:
+      '여기 방 따뜻합니다.\n 제가 옆집이 시끄러워서 벽을 주먹으로 몇 대 쳤더니 보일러가 필요없어졌네요.',
+    username: '관악구불주먹에이스',
+    createdAt: '2020-04-11T11:12:30.686',
+    modifiedAt: '2020-04-11T11:12:30.686',
+    image: { img },
+    boardLike: 2,
+    comments: [
+      {
+        id: 1,
+        postId: 1,
+        username: '관악구불주먹에이스',
+        content: '댓글 안달면 불주먹 날라감',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 2,
+        postId: 1,
+        username: '관악구길거리파이터',
+        content: '광명시장 길바닥 다 내 손바닥 안임',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+    ]
+  },
+  {
+    id: 8,
+    title: '강남의 중심이지만 조용한 지역 추천해요',
+    local: '강남구',
+    content:
+      '강남역이랑 가까우면서 치안도 좋고 조용해요.\n마치 신화속에 나오는 전설의 동물같은 지역입니다.',
+    username: '유니콘',
+    createdAt: '2020-04-11T11:12:30.686',
+    modifiedAt: '2020-04-11T11:12:30.686',
+    image: { img },
+    boardLike: 2,
+    comments: [
+      {
+        id: 3,
+        postId: 2,
+        username: '노원구러닝메이트',
+        content: '근처 공원에서 아침 바람 맞으며 러닝하기',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 4,
+        postId: 2,
+        username: '서대문구기리보이',
+        content: '여기 오면 내가 랩해드림',
+        createdAt: '2020-04-11T11:12:30.686',
+      }
+    ]
+  },
+  {
+    id: 9,
+    title: '여기 방 추천합니다.',
+    local: '관악구',
+    content:
+      '여기 방 따뜻합니다.\n 제가 옆집이 시끄러워서 벽을 주먹으로 몇 대 쳤더니 보일러가 필요없어졌네요.',
+    username: '관악구불주먹에이스',
+    createdAt: '2020-04-11T11:12:30.686',
+    modifiedAt: '2020-04-11T11:12:30.686',
+    image: { img },
+    boardLike: 2,
+    comments: [
+      {
+        id: 1,
+        postId: 1,
+        username: '관악구불주먹에이스',
+        content: '댓글 안달면 불주먹 날라감',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 2,
+        postId: 1,
+        username: '관악구길거리파이터',
+        content: '광명시장 길바닥 다 내 손바닥 안임',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+    ]
+  },
+  {
+    id: 10,
+    title: '강남의 중심이지만 조용한 지역 추천해요',
+    local: '강남구',
+    content:
+      '강남역이랑 가까우면서 치안도 좋고 조용해요.\n마치 신화속에 나오는 전설의 동물같은 지역입니다.',
+    username: '유니콘',
+    createdAt: '2020-04-11T11:12:30.686',
+    modifiedAt: '2020-04-11T11:12:30.686',
+    image: { img },
+    boardLike: 2,
+    comments: [
+      {
+        id: 3,
+        postId: 2,
+        username: '노원구러닝메이트',
+        content: '근처 공원에서 아침 바람 맞으며 러닝하기',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 4,
+        postId: 2,
+        username: '서대문구기리보이',
+        content: '여기 오면 내가 랩해드림',
+        createdAt: '2020-04-11T11:12:30.686',
+      }
+    ]
+  },
+  {
+    id: 11,
+    title: '여기 방 추천합니다.',
+    local: '관악구',
+    content:
+      '여기 방 따뜻합니다.\n 제가 옆집이 시끄러워서 벽을 주먹으로 몇 대 쳤더니 보일러가 필요없어졌네요.',
+    username: '관악구불주먹에이스',
+    createdAt: '2020-04-11T11:12:30.686',
+    modifiedAt: '2020-04-11T11:12:30.686',
+    image: { img },
+    boardLike: 2,
+    comments: [
+      {
+        id: 1,
+        postId: 1,
+        username: '관악구불주먹에이스',
+        content: '댓글 안달면 불주먹 날라감',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 2,
+        postId: 1,
+        username: '관악구길거리파이터',
+        content: '광명시장 길바닥 다 내 손바닥 안임',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+    ]
+  },
+  {
+    id: 12,
+    title: '강남의 중심이지만 조용한 지역 추천해요',
+    local: '강남구',
+    content:
+      '강남역이랑 가까우면서 치안도 좋고 조용해요.\n마치 신화속에 나오는 전설의 동물같은 지역입니다.',
+    username: '유니콘',
+    createdAt: '2020-04-11T11:12:30.686',
+    modifiedAt: '2020-04-11T11:12:30.686',
+    image: { img },
+    boardLike: 2,
+    comments: [
+      {
+        id: 3,
+        postId: 2,
+        username: '노원구러닝메이트',
+        content: '근처 공원에서 아침 바람 맞으며 러닝하기',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 4,
+        postId: 2,
+        username: '서대문구기리보이',
+        content: '여기 오면 내가 랩해드림',
+        createdAt: '2020-04-11T11:12:30.686',
+      }
+    ]
+  },
+  {
+    id: 13,
+    title: '여기 방 추천합니다.',
+    local: '관악구',
+    content:
+      '여기 방 따뜻합니다.\n 제가 옆집이 시끄러워서 벽을 주먹으로 몇 대 쳤더니 보일러가 필요없어졌네요.',
+    username: '관악구불주먹에이스',
+    createdAt: '2020-04-11T11:12:30.686',
+    modifiedAt: '2020-04-11T11:12:30.686',
+    image: { img },
+    boardLike: 2,
+    comments: [
+      {
+        id: 1,
+        postId: 1,
+        username: '관악구불주먹에이스',
+        content: '댓글 안달면 불주먹 날라감',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 2,
+        postId: 1,
+        username: '관악구길거리파이터',
+        content: '광명시장 길바닥 다 내 손바닥 안임',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+    ]
+  },
+  {
+    id: 14,
+    title: '강남의 중심이지만 조용한 지역 추천해요',
+    local: '강남구',
+    content:
+      '강남역이랑 가까우면서 치안도 좋고 조용해요.\n마치 신화속에 나오는 전설의 동물같은 지역입니다.',
+    username: '유니콘',
+    createdAt: '2020-04-11T11:12:30.686',
+    modifiedAt: '2020-04-11T11:12:30.686',
+    image: { img },
+    boardLike: 2,
+    comments: [
+      {
+        id: 3,
+        postId: 2,
+        username: '노원구러닝메이트',
+        content: '근처 공원에서 아침 바람 맞으며 러닝하기',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 4,
+        postId: 2,
+        username: '서대문구기리보이',
+        content: '여기 오면 내가 랩해드림',
+        createdAt: '2020-04-11T11:12:30.686',
+      }
+    ]
+  },
+  {
+    id: 15,
+    title: '여기 방 추천합니다.',
+    local: '관악구',
+    content:
+      '여기 방 따뜻합니다.\n 제가 옆집이 시끄러워서 벽을 주먹으로 몇 대 쳤더니 보일러가 필요없어졌네요.',
+    username: '관악구불주먹에이스',
+    createdAt: '2020-04-11T11:12:30.686',
+    modifiedAt: '2020-04-11T11:12:30.686',
+    image: { img },
+    boardLike: 2,
+    comments: [
+      {
+        id: 1,
+        postId: 1,
+        username: '관악구불주먹에이스',
+        content: '댓글 안달면 불주먹 날라감',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 2,
+        postId: 1,
+        username: '관악구길거리파이터',
+        content: '광명시장 길바닥 다 내 손바닥 안임',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+    ]
+  },
+  {
+    id: 16,
+    title: '강남의 중심이지만 조용한 지역 추천해요',
+    local: '강남구',
+    content:
+      '강남역이랑 가까우면서 치안도 좋고 조용해요.\n마치 신화속에 나오는 전설의 동물같은 지역입니다.',
+    username: '유니콘',
+    createdAt: '2020-04-11T11:12:30.686',
+    modifiedAt: '2020-04-11T11:12:30.686',
+    image: { img },
+    boardLike: 2,
+    comments: [
+      {
+        id: 3,
+        postId: 2,
+        username: '노원구러닝메이트',
+        content: '근처 공원에서 아침 바람 맞으며 러닝하기',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 4,
+        postId: 2,
+        username: '서대문구기리보이',
+        content: '여기 오면 내가 랩해드림',
+        createdAt: '2020-04-11T11:12:30.686',
+      }
+    ]
+  },
+  {
+    id: 17,
+    title: '여기 방 추천합니다.',
+    local: '관악구',
+    content:
+      '여기 방 따뜻합니다.\n 제가 옆집이 시끄러워서 벽을 주먹으로 몇 대 쳤더니 보일러가 필요없어졌네요.',
+    username: '관악구불주먹에이스',
+    createdAt: '2020-04-11T11:12:30.686',
+    modifiedAt: '2020-04-11T11:12:30.686',
+    image: { img },
+    boardLike: 2,
+    comments: [
+      {
+        id: 1,
+        postId: 1,
+        username: '관악구불주먹에이스',
+        content: '댓글 안달면 불주먹 날라감',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 2,
+        postId: 1,
+        username: '관악구길거리파이터',
+        content: '광명시장 길바닥 다 내 손바닥 안임',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+    ]
+  },
+  {
+    id: 18,
+    title: '강남의 중심이지만 조용한 지역 추천해요',
+    local: '강남구',
+    content:
+      '강남역이랑 가까우면서 치안도 좋고 조용해요.\n마치 신화속에 나오는 전설의 동물같은 지역입니다.',
+    username: '유니콘',
+    createdAt: '2020-04-11T11:12:30.686',
+    modifiedAt: '2020-04-11T11:12:30.686',
+    image: { img },
+    boardLike: 2,
+    comments: [
+      {
+        id: 3,
+        postId: 2,
+        username: '노원구러닝메이트',
+        content: '근처 공원에서 아침 바람 맞으며 러닝하기',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 4,
+        postId: 2,
+        username: '서대문구기리보이',
+        content: '여기 오면 내가 랩해드림',
+        createdAt: '2020-04-11T11:12:30.686',
+      }
+    ]
+  },
+  {
+    id: 19,
+    title: '여기 방 추천합니다.',
+    local: '관악구',
+    content:
+      '여기 방 따뜻합니다.\n 제가 옆집이 시끄러워서 벽을 주먹으로 몇 대 쳤더니 보일러가 필요없어졌네요.',
+    username: '관악구불주먹에이스',
+    createdAt: '2020-04-11T11:12:30.686',
+    modifiedAt: '2020-04-11T11:12:30.686',
+    image: { img },
+    boardLike: 2,
+    comments: [
+      {
+        id: 1,
+        postId: 1,
+        username: '관악구불주먹에이스',
+        content: '댓글 안달면 불주먹 날라감',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 2,
+        postId: 1,
+        username: '관악구길거리파이터',
+        content: '광명시장 길바닥 다 내 손바닥 안임',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+    ]
+  },
+  {
+    id: 20,
+    title: '강남의 중심이지만 조용한 지역 추천해요',
+    local: '강남구',
+    content:
+      '강남역이랑 가까우면서 치안도 좋고 조용해요.\n마치 신화속에 나오는 전설의 동물같은 지역입니다.',
+    username: '유니콘',
+    createdAt: '2020-04-11T11:12:30.686',
+    modifiedAt: '2020-04-11T11:12:30.686',
+    image: { img },
+    boardLike: 2,
+    comments: [
+      {
+        id: 3,
+        postId: 2,
+        username: '노원구러닝메이트',
+        content: '근처 공원에서 아침 바람 맞으며 러닝하기',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 4,
+        postId: 2,
+        username: '서대문구기리보이',
+        content: '여기 오면 내가 랩해드림',
+        createdAt: '2020-04-11T11:12:30.686',
+      }
+    ]
+  },
+  {
+    id: 21,
+    title: '강남의 중심이지만 조용한 지역 추천해요',
+    local: '강남구',
+    content:
+      '강남역이랑 가까우면서 치안도 좋고 조용해요.\n마치 신화속에 나오는 전설의 동물같은 지역입니다.',
+    username: '유니콘',
+    createdAt: '2020-04-11T11:12:30.686',
+    modifiedAt: '2020-04-11T11:12:30.686',
+    image: { img },
+    boardLike: 2,
+    comments: [
+      {
+        id: 3,
+        postId: 2,
+        username: '노원구러닝메이트',
+        content: '근처 공원에서 아침 바람 맞으며 러닝하기',
+        createdAt: '2020-04-11T11:12:30.686',
+      },
+      {
+        id: 4,
+        postId: 2,
+        username: '서대문구기리보이',
+        content: '여기 오면 내가 랩해드림',
+        createdAt: '2020-04-11T11:12:30.686',
+      }
+    ]
+  },
+  {
+    id: 22,
     title: '강남의 중심이지만 조용한 지역 추천해요',
     local: '강남구',
     content:
