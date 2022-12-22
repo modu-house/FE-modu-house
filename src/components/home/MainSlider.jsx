@@ -20,17 +20,19 @@ function MainSlider() {
   const postPerPage = 20;
 
   const getPosts = useCallback(async (local) => {
-    console.log(local);
     if (local === '전체') {
       await postAPI.getPosts().then((res) => {
         setTotalPosts(res.data);
       });
     } else {
-      console.log('왜 호출 안함');
       await postAPI.getPostsByLocal(local).then((res) => {
         setTotalPosts(res.data);
       });
     }
+  }, []);
+
+  const dividePosts = useCallback((posts) => {
+    setDividedPosts(chunk(posts, postPerPage));
   }, []);
 
   const chunk = (data = [], size = 1) => {
@@ -41,28 +43,24 @@ function MainSlider() {
     return arr;
   };
 
-  // 무한 Effect, 데이터 안나눠짐
   useEffect(() => {
     const currentParams = Object.fromEntries([...searchParams]);
     setLocal(currentParams.local ?? '전체');
-    getPosts(local);
-  }, [searchParams, local]);
+  }, [searchParams]);
 
   useEffect(() => {
-    if (totalPosts.length > postPerPage) {
-      setDividedPosts(chunk(totalPosts, postPerPage));
-    }
+    getPosts(local);
+  }, [local]);
+
+  useEffect(() => {
+    dividePosts(totalPosts);
   }, [totalPosts]);
 
+  console.log(dividedPosts);
   return (
     <StSlider {...settings}>
-      {dividedPosts ? (
-        dividedPosts.map((posts, idx) => {
-          return <HouseList key={idx} posts={posts} />;
-        })
-      ) : (
-        <HouseList posts={totalPosts} />
-      )}
+      {dividedPosts &&
+        dividedPosts.map((posts, idx) => <HouseList key={idx} posts={posts} />)}
     </StSlider>
   );
 }
