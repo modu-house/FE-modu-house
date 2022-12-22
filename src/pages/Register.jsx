@@ -1,22 +1,72 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import MainPageTemplate from '../components/main/MainPageTemplate';
 import Input from '../components/common/Input';
 import Button from '../components/common/Button';
+import authAPI from '../api/auth';
 
 function Register() {
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirm, setConfirm] = useState('');
+  const navigate = useNavigate();
+
+  const handleChangeId = (e) => {
+    setId(e.target.value);
+  };
+
+  const handleChangePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleChangeConfirm = (e) => {
+    setConfirm(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    if (password === confirm) {
+      authAPI
+        .Signup({
+          usename: id,
+          password,
+        })
+        .then((res) => {
+          localStorage.setItem('id', res.headers.authorization);
+          alert('회원가입 성공');
+          navigate('/login');
+        })
+        .catch((error) => alert(error.response.data.msg));
+    } else {
+      alert('비밀번호가 일치하지 않습니다.');
+    }
+  };
+
   return (
     <MainPageTemplate>
       <FormBlock>
         <PageTitle>회원가입</PageTitle>
         <AuthForm>
           <div className="inputBox">
-            <Input type="text" placeholder="아이디" />
-            <Input type="text" placeholder="닉네임" />
-            <Input type="password" placeholder="패스워드" />
-            <Input type="password" placeholder="패스워드 확인" />
-            <Button size="large" width="100%">
+            <Input
+              value={id}
+              onChange={handleChangeId}
+              type="text"
+              placeholder="아이디"
+            />
+            <Input
+              value={password}
+              onChange={handleChangePassword}
+              type="password"
+              placeholder="패스워드"
+            />
+            <Input
+              value={confirm}
+              onChange={handleChangeConfirm}
+              type="password"
+              placeholder="패스워드 확인"
+            />
+            <Button onClick={handleSubmit} size="large" width="100%">
               회원가입
             </Button>
           </div>

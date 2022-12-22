@@ -3,8 +3,8 @@ import img1 from '../assets/test1.png';
 import img2 from '../assets/test2.png';
 
 let users = [
-  { id: 'test', password: 'test', usename: '양정동마자용'},
-  { id: 'synun', password: 'synun', usename: '미사동똑띠'}
+  { username: 'test', password: 'test'},
+  { username: 'synun', password: 'synun'}
 ];
 
 let boards = [
@@ -666,8 +666,9 @@ export const userHandlers = [
 
   // 로그인
   rest.post('/api/user/login', (req, res, ctx) => {
-    const { id, password } = req.body;
-    const exist = users.find((item) => id===item.id && password===item.password);
+    const { username, password } = req.body;
+    const exist = users.find((item) => username===item.username && password===item.password);
+    console.log(exist);
     if(exist) {
       return res(
         ctx.status(200),
