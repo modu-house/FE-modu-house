@@ -14,7 +14,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import theme from '../../styles/theme';
 import postAPI from '../../api/posts';
-import Img from '../../assets/test.png';
+import { formatTime } from '../../utils/time';
 
 function Detail() {
   const { id } = useParams();
@@ -45,13 +45,15 @@ function Detail() {
               {detail.username}
             </Info>
           </div>
-          <div className="created">{detail.createdAt}</div>
+          <div className="created">{formatTime(detail.createdAt)}</div>
         </StInfo>
       </div>
       <StMain>
         <StImg>
-          <img className="image" src={Img} alt="image" />
-          {/* <img className="image" src={detail.image.img} alt="image" /> */}
+          {detail.image &&
+            detail.image.map((img) => (
+              <img className="image" src={img} alt="image" />
+            ))}
         </StImg>
         <StText>
           <div className="title">{detail.title}</div>
