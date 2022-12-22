@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -13,21 +13,9 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import theme from '../../styles/theme';
-import postAPI from '../../api/posts';
 import { formatTime } from '../../utils/time';
 
-function Detail() {
-  const { id } = useParams();
-  const [detail, setDetail] = useState({});
-
-  useEffect(() => {
-    postAPI.getPostDetail(id).then((res) => {
-      setDetail(res.data);
-    });
-  }, []);
-
-  // console.log(detail.comments.length);
-
+function Detail({ data }) {
   return (
     <StDetail>
       <div className="top">
@@ -38,39 +26,39 @@ function Detail() {
           <div className="infoBox">
             <Info className="local">
               <FontAwesomeIcon icon={faLocationDot} className="infoIcon" />
-              {detail.local}
+              {data?.local}
             </Info>
             <Info className="user">
               <FontAwesomeIcon icon={faUser} className="infoIcon" />
-              {detail.username}
+              {data?.username}
             </Info>
           </div>
-          <div className="created">{formatTime(detail.createdAt)}</div>
+          <div className="created">{formatTime(data?.createdAt)}</div>
         </StInfo>
       </div>
       <StMain>
         <StImg>
-          {detail.image &&
-            detail.image.map((img) => (
-              <img className="image" src={img} alt="image" />
+          {data.imageList &&
+            data?.imageList.map((img, index) => (
+              <img key={index} className="image" src={img} alt="image" />
             ))}
         </StImg>
         <StText>
-          <div className="title">{detail.title}</div>
-          <div className="content">{detail.content}</div>
+          <div className="title">{data?.title}</div>
+          <div className="content">{data?.content}</div>
         </StText>
         <div className="main">
           <StCount>
             <Count>
               <FontAwesomeIcon icon={faHeart} className="likeCount countIcon" />
-              <span>{detail.boardLike}</span>
+              <span>{data?.boardLike}</span>
             </Count>
             <Count>
               <FontAwesomeIcon
                 icon={faCommentDots}
                 className="commentCount countIcon"
               />
-              {/* <span>{detail.comments.length}</span> */}
+              <span>{data.commentList?.length}</span>
             </Count>
             <Count>
               <FontAwesomeIcon
