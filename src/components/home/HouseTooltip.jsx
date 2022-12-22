@@ -17,7 +17,7 @@ const HouseTooltip = ({ children, post }) => {
         <StTitle>{post.title}</StTitle>
         {post.image && (
           <StImg>
-            <img className="image" src={post.image[0]} alt="image" />
+            <img className="image" src={post.imageList[0]} alt="image" />
           </StImg>
         )}
         <StInfo>
@@ -36,7 +36,7 @@ const HouseTooltip = ({ children, post }) => {
                 icon={faCommentDots}
                 className="infoIcon"
               />
-              {post.comments.length}
+              {post.commentList?.length}
             </Info>
           </div>
           <div className="created">{elapsedTime(post.createdAt)}</div>
