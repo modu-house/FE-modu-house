@@ -1,20 +1,57 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Input from '../components/common/Input';
 import MainPageTemplate from '../components/main/MainPageTemplate';
 import Button from '../components/common/Button';
+import authAPI from '../api/auth.js';
 
 function Login() {
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleChangeId = (e) => {
+    setId(e.target.value);
+  };
+
+  const handleChangePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleClick = async () => {
+    await authAPI
+      .Login({
+        username: id,
+        password,
+      })
+      .then((res) => {
+        alert('로그인 성공');
+        localStorage.setItem('id', res.headers.authorization);
+        navigate('/');
+      })
+      .catch((error) => alert(error.response.data.message));
+  };
+
   return (
     <MainPageTemplate>
       <FormBlock>
         <PageTitle>로그인</PageTitle>
         <AuthForm>
           <div className="inputBox">
-            <Input type="text" placeholder="아이디" />
-            <Input type="password" placeholder="패스워드" />
-            <Button size="large" width="100%">
+            <Input
+              value={id}
+              onChange={handleChangeId}
+              type="text"
+              placeholder="아이디"
+            />
+            <Input
+              value={password}
+              onChange={handleChangePassword}
+              type="password"
+              placeholder="패스워드"
+            />
+            <Button onClick={handleClick} size="large" width="100%">
               로그인
             </Button>
           </div>
