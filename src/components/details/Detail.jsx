@@ -13,7 +13,7 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import theme from '../../styles/theme';
-import { getPostDetail } from '../../api/posts';
+import postAPI from '../../api/posts';
 import Img from '../../assets/test.png';
 
 function Detail() {
@@ -21,7 +21,7 @@ function Detail() {
   const [detail, setDetail] = useState({});
 
   useEffect(() => {
-    getPostDetail(id).then((res) => {
+    postAPI.getPostDetail(id).then((res) => {
       setDetail(res.data);
     });
   }, []);
