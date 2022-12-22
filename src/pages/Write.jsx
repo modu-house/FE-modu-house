@@ -3,14 +3,26 @@ import styled from 'styled-components';
 import MainPageTemplate from '../components/main/MainPageTemplate';
 import Button from '../components/common/Button';
 import theme from '../styles/theme';
+import { getSeoul } from '../utils/local';
+import postAPI from '../api/posts';
+import { useNavigate } from 'react-router';
 
 function Write() {
-  //이미지 프리뷰
-  const [imageSrc, setImageSrc] = useState('');
+  const [imageFormData, setImageFormData] = useState([]);
+  const [imageSrc, setImageSrc] = useState([]);
+  const [selected, setSelected] = useState('강남구');
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const navigate = useNavigate();
+
+  const seoul = getSeoul();
 
   const encodeFile = (fileBlob) => {
     const reader = new FileReader();
-    reader.readAsDataURL(fileBlob);
+    const formData = new FormData();
+    reader.readAsDataURL(fileBlob[0]);
+    formData.append('files', fileBlob[0]);
+    setImageFormData(formData);
 
     return new Promise((resolve) => {
       reader.onload = () => {
@@ -21,41 +33,42 @@ function Write() {
   };
 
   const handleImageUpload = (event) => {
-    encodeFile(event.target.files[0]);
+    const files = event.currentTarget.files;
+    if ([...files].length > 2) {
+      alert('이미지는 최대 1개까지 업로드가 가능합니다.');
+      return;
+    } else {
+      encodeFile(files);
+    }
   };
-
-  // 지역 선택박스
-  const selectList = [
-    '강남구',
-    '강동구',
-    '강북구',
-    '강서구',
-    '관악구',
-    '광진구',
-    '구로구',
-    '금천구',
-    '노원구',
-    '도봉구',
-    '동대문구',
-    '동작구',
-    '마포구',
-    '서대문구',
-    '서초구',
-    '성동구',
-    '성북구',
-    '송파구',
-    '양천구',
-    '영등포구',
-    '용산구',
-    '은평구',
-    '종로구',
-    '중구',
-    '중량구',
-  ];
-  const [Selected, setSelected] = useState('');
 
   const handleSelect = (e) => {
     setSelected(e.target.value);
+  };
+
+  const handleTitle = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const handleContent = (e) => {
+    setContent(e.target.value);
+  };
+
+  const handleSubmit = async () => {
+    if (title && content) {
+      await postAPI
+        .writePost({
+          title,
+          content,
+          image: imageFormData,
+          local: selected,
+        })
+        .then((res) => {
+          console.log(res);
+          navigate('/');
+        })
+        .catch((error) => alert(error.response.data.msg));
+    }
   };
 
   return (
@@ -77,23 +90,23 @@ function Write() {
           <Select>
             <select
               onChange={handleSelect}
-              value={Selected}
+              value={selected}
               className="selectBox"
             >
-              {selectList.map((item) => (
-                <option value={item} key={item}>
-                  {item}
+              {seoul.map((item) => (
+                <option value={item.name} key={item.name}>
+                  {item.name}
                 </option>
               ))}
             </select>
             <hr />
             <p>
-              Selected: <b className="selected">{Selected}</b>
+              지역: <b className="selected">{selected}</b>
             </p>
           </Select>
-          <TitleArea />
-          <ContentArea />
-          <Button>글쓰기</Button>
+          <TitleArea value={title} onChange={handleTitle} />
+          <ContentArea value={content} onChange={handleContent} />
+          <Button onClick={handleSubmit}>글쓰기</Button>
         </Wrapper>
       </Main>
     </MainPageTemplate>

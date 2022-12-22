@@ -14,7 +14,7 @@ const getPosts = async () => {
 
 const getPostsByLocal = async (local) => {
   try {
-    const data = await instance.get(`/api/boards?local=${local}`);
+    const data = await instance.get(`/api/localBoards?local=${local}`);
     return data;
   } catch (error) {
     alert(error.response.data.msg);
@@ -34,7 +34,7 @@ const getPostDetail = async (postId) => {
 // 게시글 작성
 const writePost = async (post) => {
   try {
-    const data = await instance.post("/api/boards", post);
+    const data = await instance.post("/api/board", post);
     return data;
   } catch (error) {
     alert(error.response.data.msg);

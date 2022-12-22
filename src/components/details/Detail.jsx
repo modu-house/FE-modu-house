@@ -39,8 +39,8 @@ function Detail({ data }) {
       <StMain>
         <StImg>
           {data.imageList &&
-            data?.imageList.map((img) => (
-              <img className="image" src={img} alt="image" />
+            data?.imageList.map((img, index) => (
+              <img key={index} className="image" src={img} alt="image" />
             ))}
         </StImg>
         <StText>

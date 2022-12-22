@@ -15,7 +15,7 @@ const HouseTooltip = ({ children, post }) => {
       {children}
       <Content className="tooltip">
         <StTitle>{post.title}</StTitle>
-        {post.image && (
+        {post.imageList && (
           <StImg>
             <img className="image" src={post.imageList[0]} alt="image" />
           </StImg>

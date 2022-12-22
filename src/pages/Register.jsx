@@ -28,7 +28,7 @@ function Register() {
     if (password === confirm) {
       authAPI
         .Signup({
-          usename: id,
+          username: id,
           password,
         })
         .then((res) => {
