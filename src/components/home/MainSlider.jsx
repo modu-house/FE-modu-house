@@ -56,7 +56,6 @@ function MainSlider() {
     dividePosts(totalPosts);
   }, [totalPosts]);
 
-  console.log(dividedPosts);
   return (
     <StSlider {...settings}>
       {dividedPosts &&
@@ -67,7 +66,20 @@ function MainSlider() {
 
 const StSlider = styled(Slider)`
   width: 100%;
-  height: 85vh;
+  height: 86vh;
+
+  .slick-list {
+    height: 100%;
+  }
+
+  .slick-track {
+    height: 100%;
+  }
+
+  .slick-slide {
+    height: 100%;
+  }
+
   .slick-prev,
   .slick-next {
     position: absolute;

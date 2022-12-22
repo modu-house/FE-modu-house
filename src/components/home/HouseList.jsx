@@ -17,6 +17,7 @@ const StHouseList = styled.div`
   grid-gap: 50px;
   justify-content: center;
   width: 80%;
+  height: 100%;
   padding: 40px 0 40px 0;
   margin: 0 auto;
 `;
