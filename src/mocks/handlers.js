@@ -1,5 +1,6 @@
 import { rest } from 'msw';
-import img from '../assets/modu-house.svg';
+import img1 from '../assets/test1.png';
+import img2 from '../assets/test2.png';
 
 let users = [
   { id: 'test', password: 'test', usename: '양정동마자용'},
@@ -16,7 +17,7 @@ let boards = [
     username: '관악구불주먹에이스',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
@@ -44,7 +45,7 @@ let boards = [
     username: '유니콘',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
@@ -72,7 +73,7 @@ let boards = [
     username: '관악구불주먹에이스',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
@@ -100,7 +101,7 @@ let boards = [
     username: '유니콘',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
@@ -128,7 +129,7 @@ let boards = [
     username: '관악구불주먹에이스',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
@@ -156,7 +157,7 @@ let boards = [
     username: '유니콘',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
@@ -184,7 +185,7 @@ let boards = [
     username: '관악구불주먹에이스',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
@@ -212,7 +213,7 @@ let boards = [
     username: '유니콘',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
@@ -240,7 +241,7 @@ let boards = [
     username: '관악구불주먹에이스',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
@@ -268,7 +269,7 @@ let boards = [
     username: '유니콘',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
@@ -296,7 +297,7 @@ let boards = [
     username: '관악구불주먹에이스',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
@@ -324,7 +325,7 @@ let boards = [
     username: '유니콘',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
@@ -352,7 +353,7 @@ let boards = [
     username: '관악구불주먹에이스',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
@@ -380,7 +381,7 @@ let boards = [
     username: '유니콘',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
@@ -408,7 +409,7 @@ let boards = [
     username: '관악구불주먹에이스',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
@@ -436,7 +437,7 @@ let boards = [
     username: '유니콘',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
@@ -464,7 +465,7 @@ let boards = [
     username: '관악구불주먹에이스',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
@@ -492,7 +493,7 @@ let boards = [
     username: '유니콘',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
@@ -520,7 +521,7 @@ let boards = [
     username: '관악구불주먹에이스',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
@@ -548,7 +549,7 @@ let boards = [
     username: '유니콘',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
@@ -576,7 +577,7 @@ let boards = [
     username: '유니콘',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
@@ -604,7 +605,7 @@ let boards = [
     username: '유니콘',
     createdAt: '2020-04-11T11:12:30.686',
     modifiedAt: '2020-04-11T11:12:30.686',
-    image: { img },
+    image: [img1, img2],
     boardLike: 2,
     comments: [
       {
