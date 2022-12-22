@@ -39,24 +39,20 @@ const LocalsBox = () => {
       </TitleBox>
       {showList && (
         <ListBox>
-          {locals.map((local) => {
+          {locals.map((local, idx) => {
             if (local.name === selected) {
               return (
-                <Button
-                  key={local.index}
-                  value={local.name}
-                  onClick={handleSelect}
-                >
+                <Button key={idx} value={local.name} onClick={handleSelect}>
                   {local.name}
                 </Button>
               );
             } else {
               return (
                 <Button
+                  key={idx}
                   className={selected === local.name ? 'selected' : ''}
                   color={theme.colors.text1}
                   bgcolor={theme.colors.bg_paper2}
-                  key={local.index}
                   value={local.name}
                   onClick={handleSelect}
                 >
