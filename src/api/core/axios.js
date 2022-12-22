@@ -2,7 +2,7 @@ import axios from "axios";
 
 // 인스턴스 생성
 export const instance = axios.create({
-  baseURL: "",
+  baseURL: "http://sangt.shop",
   headers: {
     "Access-Control-Allow-Origin": "*",
   },
