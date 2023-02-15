@@ -37,13 +37,20 @@
 ## 2. 기술 스택 :hammer:
 
 <div align=center>
+<img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+<img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+<img src="https://img.shields.io/badge/styled components-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=black">  
+<br />
+<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
 <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
 <img src="https://img.shields.io/badge/redux-E34F26?style=for-the-badge&logo=redux&logoColor=white">
-<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+<img src="https://img.shields.io/badge/reduxjs/toolkit-1572B6?style=for-the-badge&logo=reduxjs&logoColor=white">
+<br />
+<img src="https://img.shields.io/badge/axios-FCC624?style=for-the-badge&logo=axios&logoColor=black">
 <img src="https://img.shields.io/badge/amazon s3-E34F26?style=for-the-badge&logo=amazons3&logoColor=white">
 <img src="https://img.shields.io/badge/vite-DD0031?style=for-the-badge&logo=vite&logoColor=white">
-<img src="https://img.shields.io/badge/reduxjs/toolkit-1572B6?style=for-the-badge&logo=reduxjs&logoColor=white">
-<img src="https://img.shields.io/badge/axios-FCC624?style=for-the-badge&logo=axios&logoColor=black">
+
+
 <br>
 </div>
 
