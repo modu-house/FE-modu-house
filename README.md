@@ -49,18 +49,34 @@
 <img src="https://img.shields.io/badge/axios-FCC624?style=for-the-badge&logo=axios&logoColor=black">
 <img src="https://img.shields.io/badge/amazon s3-E34F26?style=for-the-badge&logo=amazons3&logoColor=white">
 <img src="https://img.shields.io/badge/vite-DD0031?style=for-the-badge&logo=vite&logoColor=white">
+<img src="https://img.shields.io/badge/-msw-%23F66C2E?style=for-the-badge">
 
 
 <br>
 </div>
 
-## 3. 시연 영상
+## 3. 기능 소개
 
+**1. 회원가입 & 로그인 기능**
 
-## 4. Notion :notebook_with_decorative_cover:
+![ezgif com-crop (2)](https://user-images.githubusercontent.com/57736547/219069926-976d4b40-354e-4fef-a8ec-05eddefc451c.gif)
+
+**2. 구별 게시글 확인 기능**
+
+![ezgif com-crop (4)](https://user-images.githubusercontent.com/57736547/219069945-bd14178c-6170-4da0-a10b-0d8bbde19b3a.gif)
+
+**3. 게시글 보기**
+
+![ezgif com-crop (3)](https://user-images.githubusercontent.com/57736547/219069964-041bef81-a1f8-4468-9644-7e671b7dd868.gif)
+
+**4. 게시글 작성**
+
+![ezgif com-crop (5)](https://user-images.githubusercontent.com/57736547/219072413-65980be5-4157-4948-a464-ffebb0a4732f.gif)
+
+## 4. Team Notion :notebook_with_decorative_cover:
 
 https://www.notion.so/2-848c361d89b9457391512bc10f8b2787
 
 ## 5. Github :cat:
 
-https://github.com/modu-house/FE-modu-house
+https://github.com/modu-house
